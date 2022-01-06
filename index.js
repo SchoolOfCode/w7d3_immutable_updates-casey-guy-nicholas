@@ -50,14 +50,22 @@ export function updateName(object, newName) {
 //     toggleTeaStatus({ name: "Abe", needsACupOfTea: false })
 // should give back:
 //     { name: "Abe", needsACupOfTea: true }
-export function toggleTeaStatus(object) {}
+export function toggleTeaStatus(object) {
+    const object2 = {...object,needsACupOfTea:!object.needsACupOfTea};
+    return object2;
+}
 
 // Combo Time!!
 
-// Immutably update the array as well as the object at the given position/index within the array, so that the value under the "completed" property becomes the opposite of what it was.
+// Immutably update the array as well as the object at the given position/index within the array, 
+// so that the value under the "completed" property becomes the opposite of what it was.
 // Any other properties in the object should be maintained.
 // For example calling:
 //    toggleListItemCompleted([{ task: "Cooking", completed: true }, { task: "Walking", completed: false }], 1)
 // should give back:
 //    [{ task: "Cooking", completed: true }, { task: "Walking", completed: true }]
-export function toggleListItemCompleted(array, index) {}
+export function toggleListItemCompleted(array, index) {
+    const object2 = {...array[index],completed:!array[index].completed}
+    const array2 = [...array.slice(0,index),object2,...array.slice(index+1)]
+    return array2
+}
